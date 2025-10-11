@@ -1,10 +1,9 @@
 <?php
     include_once(__DIR__."/../../controller/AlunoController.php");
     $alunoCont = new AlunoController();
-    /*
+
     $alunos = $alunoCont->listar();
     print_r($alunos);
-    */
     
 ?>
 
