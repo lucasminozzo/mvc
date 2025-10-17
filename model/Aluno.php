@@ -9,6 +9,16 @@
         private ?string $estrangeiro;
         private ?Curso $curso;
     
+    public function getEstrangeiroDesc(){
+        if($this->estrangeiro == "S"){
+            return "Sim";
+        } else if($this->estrangeiro == "N"){
+            return "Não";
+        }
+            return "";
+    }
+
+
     public function getId(): ?int {
         return $this->id;
     

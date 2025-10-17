@@ -4,6 +4,21 @@
         private ?string $nome;
         private ?string $turno;
 
+        public function getTurnoDesc(){
+            if($this->turno == "N"){
+                return "Noturno";
+            } else if($this->turno == "M"){
+                return "Matutino";
+            } else if($this->turno == "V"){
+                return "Vespertino";
+            }
+                return "";
+        }
+
+        public function getNomeTurno(){
+            return $this->nome . " - " . $this->getTurnoDesc();
+        }
+
         public function getId(): ?int {
             return $this->id;
         }

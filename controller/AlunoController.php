@@ -7,7 +7,7 @@
         public function __construct(){
             $this->alunoDao = new AlunoDao();
         }
-        public function listar(){
+        public function listar():array{
             return $this->alunoDao->list();
         }
 
