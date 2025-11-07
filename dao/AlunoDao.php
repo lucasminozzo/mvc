@@ -11,7 +11,6 @@
         }
         public function list(){
             $sql= "SELECT a.*, c.nome nome_curso, c.turno turno_curso FROM alunos a JOIN cursos c ON (c.id = a.id_curso);";
-
             $stm= $this->conn->prepare($sql);
             $stm->execute();
             $result= $stm->fetchAll();
@@ -37,7 +36,32 @@
             }
             return $alunos;
         }
-    }
+        public function insert(Aluno $aluno){
+            try{
+                $sql= "INSERT INTO alunos (nome, idade, estrangeiro, id_curso) VALUES (?, ?, ?, ?);";
 
+                $stm= $this->conn->prepare($sql);
+                $stm->execute(array($aluno->getNome(),
+                                    $aluno->getIdade(),
+                                    $aluno->getEstrangeiro(),
+                                    $aluno->getCurso()->getId()
+                                ));
+        }catch(PDOException $e){
+            die("Erro ao inserir aluno: ".$e->getMessage());
+        }
+    }
+    public function delete(int $id){
+        try{
+            $sql= "DELETE FROM alunos WHERE id = ?;";
+            $stm= $this->conn->prepare($sql);
+            $stm->execute(array($id));
+        }catch(PDOException $e){
+            die("Erro ao deletar aluno: ".$e->getMessage());
+        }
+
+    }
+    
+
+}
 
 ?>

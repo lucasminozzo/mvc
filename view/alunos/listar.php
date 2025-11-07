@@ -32,11 +32,20 @@
         <td><?php echo $a->getIdade(); ?></td>
         <td><?php echo $a->getEstrangeiro(); ?></td>
         <td><?php echo $a->getCurso()->getId(). "-" . $a->getCurso()->getNomeTurno()?></td>
-        <td></td>
-        <td></td>
+        <td>
+            <a href="editar.php?id=<?php echo $a->getId(); ?>">
+                <img src="../../img/btn_editar.png" alt="Editar">
+            </a>
+        </td>
+        <td>
+            <a href="excluir.php?id=<?php echo $a->getId(); ?>">
+                <img src="../../img/btn_excluir.png" alt="Excluir">
+            </a>
+        </td>
     </tr>
     <?php endforeach; ?>
 
 </table>
 <?php
 include_once(__DIR__."/../include/footer.php");
+?>
